@@ -12,8 +12,8 @@ const CTA = () => {
             <span className="text-secondary">Notarized?</span>
           </h2>
           <p className="text-lg text-primary-foreground/90 leading-relaxed mb-10">
-            Schedule your appointment today and experience professional, 
-            convenient notary services wherever you are in Texas.
+            Schedule your appointment with ReFurrm Mobile Notary today and experience 
+            professional, convenient notary services wherever you are in Texas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild variant="hero" size="xl">

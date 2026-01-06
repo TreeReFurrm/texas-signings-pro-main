@@ -24,7 +24,7 @@ const navItems = [
   { name: "Appointments", href: "/admin/appointments", icon: Calendar },
   { name: "Clients", href: "/admin/clients", icon: Users },
   { name: "Expenses", href: "/admin/expenses", icon: Car },
-  { name: "Journal", href: "/admin/journal", icon: FileText },
+  { name: "Session Logger", href: "/admin/session-logger", icon: FileText },
 ];
 
 const upcomingAppointments = [
@@ -81,7 +81,7 @@ const Dashboard = () => {
               <FileText className="w-4 h-4 text-secondary-foreground" />
             </div>
             <span className="font-serif font-bold text-primary-foreground">
-              TMN Admin
+              ReFurrm Admin
             </span>
           </Link>
           <button
@@ -242,7 +242,7 @@ const Dashboard = () => {
             {[
               { label: "Log Mileage", icon: Car, href: "/admin/expenses" },
               { label: "Add Expense", icon: DollarSign, href: "/admin/expenses" },
-              { label: "New Journal Entry", icon: FileText, href: "/admin/journal" },
+              { label: "Log Session", icon: FileText, href: "/admin/session-logger" },
               { label: "Add Client", icon: Users, href: "/admin/clients" },
             ].map((action) => (
               <Link

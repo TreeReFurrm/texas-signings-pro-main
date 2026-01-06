@@ -26,10 +26,10 @@ const About = () => {
               Your Trusted <span className="text-secondary">Texas Notary</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              With over five years of experience serving the Texas community, 
-              I understand the importance of accurate, professional notary services. 
-              Whether you're closing on your dream home or need personal documents 
-              notarized, I'm committed to making the process smooth and convenient.
+              ReFurrm Mobile Notary is dedicated to providing accurate, professional 
+              notary services across Texas. Whether you're closing on your dream home 
+              or need personal documents notarized, I'm committed to making the process 
+              smooth and convenient.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
               As a mobile notary, I bring my services directly to you — saving you 

@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Book from "./pages/Book";
 import Dashboard from "./pages/admin/Dashboard";
-import Journal from "./pages/admin/Journal";
+import SessionLogger from "./pages/admin/SessionLogger";
 import Expenses from "./pages/admin/Expenses";
 import NotFound from "./pages/NotFound";
 
@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/admin/appointments" element={<Dashboard />} />
           <Route path="/admin/clients" element={<Dashboard />} />
           <Route path="/admin/expenses" element={<Expenses />} />
-          <Route path="/admin/journal" element={<Journal />} />
+          <Route path="/admin/session-logger" element={<SessionLogger />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

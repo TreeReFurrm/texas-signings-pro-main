@@ -14,10 +14,10 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-lg font-bold text-primary-foreground leading-tight">
-                  Texas Mobile
+                  ReFurrm
                 </span>
                 <span className="text-xs text-secondary font-semibold tracking-wider uppercase">
-                  Notary Services
+                  Mobile Notary
                 </span>
               </div>
             </Link>
@@ -25,6 +25,8 @@ const Footer = () => {
               Professional mobile notary services across Texas. Available 7 days a week for your convenience.
             </p>
           </div>
+
+          {/* Quick Links */}
 
           {/* Quick Links */}
           <div>
@@ -92,7 +94,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/60">
-              © {new Date().getFullYear()} Texas Mobile Notary Services. All rights reserved.
+              © {new Date().getFullYear()} ReFurrm Mobile Notary. All rights reserved.
             </p>
             <p className="text-sm text-primary-foreground/60">
               Texas Notary Commission #12345678

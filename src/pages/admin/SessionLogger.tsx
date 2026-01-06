@@ -7,12 +7,15 @@ import {
   Calendar,
   User,
   MapPin,
-  ChevronLeft,
   Menu,
   X,
   Home,
   Users,
   Car,
+  DollarSign,
+  CreditCard,
+  Clock,
+  Shield,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,6 +38,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 
 const navItems = [
@@ -42,10 +46,10 @@ const navItems = [
   { name: "Appointments", href: "/admin/appointments", icon: Calendar },
   { name: "Clients", href: "/admin/clients", icon: Users },
   { name: "Expenses", href: "/admin/expenses", icon: Car },
-  { name: "Journal", href: "/admin/journal", icon: FileText },
+  { name: "Session Logger", href: "/admin/session-logger", icon: FileText },
 ];
 
-const journalEntries = [
+const sessionEntries = [
   {
     id: 1,
     date: "2024-01-15",
@@ -55,8 +59,12 @@ const journalEntries = [
     signerAddress: "123 Main St, Houston, TX 77001",
     idType: "Texas DL",
     idNumber: "****5678",
+    idExpiration: "2027-05-15",
     documentType: "Deed of Trust",
-    fee: "$25.00",
+    notaryFee: 6.00,
+    travelFee: 50.00,
+    mileage: 24,
+    totalFee: 56.00,
     notes: "Refinance documents for residential property",
   },
   {
@@ -68,8 +76,12 @@ const journalEntries = [
     signerAddress: "456 Oak Ave, Houston, TX 77002",
     idType: "US Passport",
     idNumber: "****1234",
+    idExpiration: "2029-08-22",
     documentType: "Affidavit",
-    fee: "$25.00",
+    notaryFee: 6.00,
+    travelFee: 25.00,
+    mileage: 12,
+    totalFee: 31.00,
     notes: "Personal affidavit for court filing",
   },
   {
@@ -81,8 +93,12 @@ const journalEntries = [
     signerAddress: "789 Pine Rd, Houston, TX 77003",
     idType: "Texas DL",
     idNumber: "****9012",
+    idExpiration: "2026-11-30",
     documentType: "Power of Attorney",
-    fee: "$25.00",
+    notaryFee: 6.00,
+    travelFee: 75.00,
+    mileage: 31,
+    totalFee: 81.00,
     notes: "Durable POA for healthcare decisions",
   },
 ];
@@ -103,15 +119,24 @@ const idTypes = [
   "Other State DL/ID",
 ];
 
-const Journal = () => {
+const SessionLogger = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    notaryFee: "6.00",
+    travelFee: "",
+    mileage: "",
+  });
 
   const handleAddEntry = () => {
-    toast.success("Journal entry added successfully");
+    toast.success("Session entry logged successfully for Texas compliance");
     setIsDialogOpen(false);
   };
+
+  const totalSessions = sessionEntries.length;
+  const totalRevenue = sessionEntries.reduce((sum, e) => sum + e.totalFee, 0);
+  const totalMileage = sessionEntries.reduce((sum, e) => sum + e.mileage, 0);
 
   return (
     <div className="min-h-screen bg-muted/30">
@@ -127,7 +152,7 @@ const Journal = () => {
               <FileText className="w-4 h-4 text-secondary-foreground" />
             </div>
             <span className="font-serif font-bold text-primary-foreground">
-              TMN Admin
+              ReFurrm Admin
             </span>
           </Link>
           <button
@@ -144,7 +169,7 @@ const Journal = () => {
               key={item.name}
               to={item.href}
               className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                item.href === "/admin/journal"
+                item.href === "/admin/session-logger"
                   ? "bg-primary-foreground/10 text-primary-foreground"
                   : "text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground"
               }`}
@@ -173,25 +198,32 @@ const Journal = () => {
             <Menu className="w-6 h-6" />
           </button>
           <div className="flex-1 flex items-center justify-between ml-4 lg:ml-0">
-            <h1 className="text-lg font-semibold text-foreground">Notary Journal</h1>
+            <div>
+              <h1 className="text-lg font-semibold text-foreground">Session Logger</h1>
+              <p className="text-xs text-muted-foreground">Texas Notary Compliance Record-Keeping</p>
+            </div>
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger asChild>
                 <Button variant="gold">
                   <Plus className="w-4 h-4 mr-2" />
-                  New Entry
+                  Log Session
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle>New Journal Entry</DialogTitle>
+                  <DialogTitle className="flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-secondary" />
+                    Log Notary Session
+                  </DialogTitle>
                   <DialogDescription>
-                    Record a notarial act for Texas compliance
+                    Record notarial act details for Texas compliance (Gov. Code §406.014)
                   </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
+                  {/* Date & Time */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label>Date</Label>
+                      <Label>Date of Notarization</Label>
                       <Input type="date" defaultValue={new Date().toISOString().split('T')[0]} />
                     </div>
                     <div className="space-y-2">
@@ -199,6 +231,8 @@ const Journal = () => {
                       <Input type="time" />
                     </div>
                   </div>
+
+                  {/* Notarial Act */}
                   <div className="space-y-2">
                     <Label>Type of Notarial Act</Label>
                     <Select>
@@ -214,13 +248,33 @@ const Journal = () => {
                       </SelectContent>
                     </Select>
                   </div>
+
+                  <Separator />
+
+                  {/* Signer Information */}
+                  <div className="space-y-1">
+                    <h4 className="font-medium text-sm text-foreground flex items-center gap-2">
+                      <User className="w-4 h-4 text-primary" />
+                      Signer Information
+                    </h4>
+                  </div>
                   <div className="space-y-2">
-                    <Label>Signer's Full Name</Label>
-                    <Input placeholder="As shown on ID" />
+                    <Label>Signer's Full Legal Name</Label>
+                    <Input placeholder="As shown on identification" />
                   </div>
                   <div className="space-y-2">
                     <Label>Signer's Address</Label>
-                    <Input placeholder="Full address" />
+                    <Input placeholder="Full address including city, state, zip" />
+                  </div>
+
+                  <Separator />
+
+                  {/* ID Verification - Texas Requirement */}
+                  <div className="space-y-1">
+                    <h4 className="font-medium text-sm text-foreground flex items-center gap-2">
+                      <CreditCard className="w-4 h-4 text-primary" />
+                      ID Verification (Texas Required)
+                    </h4>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -239,23 +293,70 @@ const Journal = () => {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label>ID Number (Last 4)</Label>
+                      <Label>ID Number (Last 4 Digits)</Label>
                       <Input placeholder="XXXX" maxLength={4} />
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>ID Expiration Date</Label>
+                    <Input type="date" />
+                  </div>
+
+                  <Separator />
+
+                  {/* Document Details */}
+                  <div className="space-y-2">
+                    <Label>Document Type/Description</Label>
+                    <Input placeholder="e.g., Deed of Trust, Affidavit, POA" />
+                  </div>
+
+                  <Separator />
+
+                  {/* Fees & Mileage - Texas Compliance */}
+                  <div className="space-y-1">
+                    <h4 className="font-medium text-sm text-foreground flex items-center gap-2">
+                      <DollarSign className="w-4 h-4 text-primary" />
+                      Fees & Mileage
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      Texas max notary fee: $6.00 per signature/seal
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-3 gap-4">
                     <div className="space-y-2">
-                      <Label>Document Type</Label>
-                      <Input placeholder="e.g., Deed of Trust" />
+                      <Label>Notary Fee</Label>
+                      <Input 
+                        type="number" 
+                        value={formData.notaryFee}
+                        onChange={(e) => setFormData({...formData, notaryFee: e.target.value})}
+                        step="0.01"
+                        placeholder="6.00" 
+                      />
                     </div>
                     <div className="space-y-2">
-                      <Label>Fee Charged</Label>
-                      <Input placeholder="$25.00" />
+                      <Label>Travel Fee</Label>
+                      <Input 
+                        type="number"
+                        value={formData.travelFee}
+                        onChange={(e) => setFormData({...formData, travelFee: e.target.value})}
+                        step="0.01" 
+                        placeholder="0.00" 
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Mileage</Label>
+                      <Input 
+                        type="number"
+                        value={formData.mileage}
+                        onChange={(e) => setFormData({...formData, mileage: e.target.value})}
+                        placeholder="0" 
+                      />
                     </div>
                   </div>
+
                   <div className="space-y-2">
-                    <Label>Notes</Label>
-                    <Textarea placeholder="Additional details about the notarization" rows={3} />
+                    <Label>Session Notes</Label>
+                    <Textarea placeholder="Additional details about the notarization" rows={2} />
                   </div>
                 </div>
                 <div className="flex justify-end gap-3">
@@ -263,7 +364,7 @@ const Journal = () => {
                     Cancel
                   </Button>
                   <Button variant="gold" onClick={handleAddEntry}>
-                    Save Entry
+                    Save Session
                   </Button>
                 </div>
               </DialogContent>
@@ -271,8 +372,67 @@ const Journal = () => {
           </div>
         </header>
 
-        {/* Journal Content */}
+        {/* Session Logger Content */}
         <main className="p-4 lg:p-8">
+          {/* Texas Compliance Notice */}
+          <Card className="mb-6 border-secondary/50 bg-secondary/5">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-3">
+                <Shield className="w-5 h-5 text-secondary mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Texas Compliance Record-Keeping</h3>
+                  <p className="text-sm text-muted-foreground">
+                    This logger helps you maintain records required under Texas Government Code §406.014. 
+                    Records include date, type of act, signer identification, fees charged, and document details.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Total Sessions</p>
+                    <p className="text-2xl font-bold text-foreground">{totalSessions}</p>
+                  </div>
+                  <div className="p-3 rounded-full bg-secondary/20 text-secondary">
+                    <FileText className="w-5 h-5" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Total Revenue</p>
+                    <p className="text-2xl font-bold text-foreground">${totalRevenue.toFixed(2)}</p>
+                  </div>
+                  <div className="p-3 rounded-full bg-secondary/20 text-secondary">
+                    <DollarSign className="w-5 h-5" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Total Mileage</p>
+                    <p className="text-2xl font-bold text-foreground">{totalMileage} mi</p>
+                  </div>
+                  <div className="p-3 rounded-full bg-secondary/20 text-secondary">
+                    <Car className="w-5 h-5" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
           {/* Search & Filter */}
           <Card className="mb-6">
             <CardContent className="pt-6">
@@ -280,7 +440,7 @@ const Journal = () => {
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
-                    placeholder="Search by signer name or document..."
+                    placeholder="Search by signer name, document, or ID..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-9"
@@ -303,9 +463,9 @@ const Journal = () => {
             </CardContent>
           </Card>
 
-          {/* Journal Entries */}
+          {/* Session Entries */}
           <div className="space-y-4">
-            {journalEntries.map((entry) => (
+            {sessionEntries.map((entry) => (
               <Card key={entry.id} className="hover:shadow-md transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
@@ -319,36 +479,46 @@ const Journal = () => {
                           {entry.date} at {entry.time}
                         </span>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div>
-                          <p className="text-sm text-muted-foreground">Signer</p>
+                          <p className="text-xs text-muted-foreground uppercase tracking-wide">Signer</p>
                           <p className="font-medium text-foreground flex items-center gap-1">
                             <User className="w-4 h-4 text-primary" />
                             {entry.signerName}
                           </p>
                         </div>
                         <div>
-                          <p className="text-sm text-muted-foreground">Document</p>
+                          <p className="text-xs text-muted-foreground uppercase tracking-wide">Document</p>
                           <p className="font-medium text-foreground">{entry.documentType}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-muted-foreground">ID Presented</p>
+                          <p className="text-xs text-muted-foreground uppercase tracking-wide">ID Verified</p>
                           <p className="font-medium text-foreground">
                             {entry.idType} ({entry.idNumber})
                           </p>
+                          <p className="text-xs text-muted-foreground">Exp: {entry.idExpiration}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-muted-foreground">Fee</p>
-                          <p className="font-medium text-secondary">{entry.fee}</p>
+                          <p className="text-xs text-muted-foreground uppercase tracking-wide">Fees</p>
+                          <p className="font-semibold text-secondary">${entry.totalFee.toFixed(2)}</p>
+                          <p className="text-xs text-muted-foreground">
+                            Notary: ${entry.notaryFee.toFixed(2)} + Travel: ${entry.travelFee.toFixed(2)}
+                          </p>
                         </div>
                       </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">Address</p>
-                        <p className="text-sm text-foreground flex items-center gap-1">
+
+                      <div className="flex items-center gap-4 text-sm">
+                        <span className="flex items-center gap-1 text-muted-foreground">
                           <MapPin className="w-3.5 h-3.5 text-primary" />
                           {entry.signerAddress}
-                        </p>
+                        </span>
+                        <span className="flex items-center gap-1 text-muted-foreground">
+                          <Car className="w-3.5 h-3.5 text-primary" />
+                          {entry.mileage} miles
+                        </span>
                       </div>
+
                       {entry.notes && (
                         <div className="pt-2 border-t border-border">
                           <p className="text-sm text-muted-foreground">{entry.notes}</p>
@@ -374,4 +544,4 @@ const Journal = () => {
   );
 };
 
-export default Journal;
+export default SessionLogger;
