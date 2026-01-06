@@ -1,5 +1,6 @@
 import { FileText, Home, Monitor, Car } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const services = [
   {
@@ -8,6 +9,7 @@ const services = [
     description:
       "Acknowledgments, jurats, oaths, affirmations, and certified copies. All standard notarial acts for personal and business documents.",
     features: ["Affidavits", "Power of Attorney", "Wills & Trusts", "Contracts"],
+    comingSoon: false,
   },
   {
     icon: Home,
@@ -15,13 +17,15 @@ const services = [
     description:
       "Certified loan signing agent for real estate closings. Experienced with all major title companies and lenders.",
     features: ["Refinances", "Purchases", "HELOCs", "Reverse Mortgages"],
+    comingSoon: false,
   },
   {
     icon: Monitor,
-    title: "Remote Online Notary",
+    title: "Remote Online Notary (RON)",
     description:
       "Secure video-based notarization from anywhere. Perfect for out-of-state signers or busy schedules.",
     features: ["24/7 Availability", "Secure Platform", "Digital Documents", "Fast Turnaround"],
+    comingSoon: true,
   },
   {
     icon: Car,
@@ -29,6 +33,7 @@ const services = [
     description:
       "We travel to your home, office, hospital, or any location. Flexible scheduling including evenings and weekends.",
     features: ["Home Visits", "Office Visits", "Hospitals", "Flexible Hours"],
+    comingSoon: false,
   },
 ];
 
@@ -50,8 +55,17 @@ const Services = () => {
           {services.map((service) => (
             <Card
               key={service.title}
-              className="group bg-card hover:shadow-lg transition-all duration-300 border-border hover:border-secondary/50"
+              className={`group bg-card hover:shadow-lg transition-all duration-300 border-border hover:border-secondary/50 relative ${
+                service.comingSoon ? "opacity-90" : ""
+              }`}
             >
+              {service.comingSoon && (
+                <div className="absolute top-3 right-3">
+                  <Badge className="bg-secondary text-secondary-foreground text-xs">
+                    Coming Soon
+                  </Badge>
+                </div>
+              )}
               <CardHeader>
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors">
                   <service.icon className="w-7 h-7 text-primary group-hover:text-secondary transition-colors" />

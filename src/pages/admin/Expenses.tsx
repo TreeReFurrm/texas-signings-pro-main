@@ -43,7 +43,7 @@ const navItems = [
   { name: "Appointments", href: "/admin/appointments", icon: Calendar },
   { name: "Clients", href: "/admin/clients", icon: Users },
   { name: "Expenses", href: "/admin/expenses", icon: Car },
-  { name: "Journal", href: "/admin/journal", icon: FileText },
+  { name: "Session Logger", href: "/admin/session-logger", icon: FileText },
 ];
 
 const mileageEntries = [
@@ -146,7 +146,7 @@ const Expenses = () => {
               <FileText className="w-4 h-4 text-secondary-foreground" />
             </div>
             <span className="font-serif font-bold text-primary-foreground">
-              TMN Admin
+              ReFurrm Admin
             </span>
           </Link>
           <button

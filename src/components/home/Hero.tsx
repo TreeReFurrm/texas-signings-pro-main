@@ -27,8 +27,8 @@ const Hero = () => {
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
-            Professional Mobile
-            <span className="block text-secondary">Notary Services</span>
+            ReFurrm
+            <span className="block text-secondary">Mobile Notary</span>
           </h1>
 
           <p className="text-lg text-primary-foreground/90 leading-relaxed mb-8 max-w-xl">

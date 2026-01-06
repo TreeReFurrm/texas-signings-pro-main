@@ -30,10 +30,10 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-lg font-bold text-primary leading-tight">
-                Texas Mobile
+                ReFurrm
               </span>
               <span className="text-xs text-secondary font-semibold tracking-wider uppercase">
-                Notary Services
+                Mobile Notary
               </span>
             </div>
           </Link>
