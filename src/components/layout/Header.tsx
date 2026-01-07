@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, FileText, Phone } from "lucide-react";
+import { Menu, X, FileText, Phone, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -64,6 +66,12 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               (123) 456-7890
             </a>
+            <Button asChild variant="outline" size="sm">
+              <Link to={user ? "/notary/jobs" : "/auth"}>
+                <User className="w-4 h-4 mr-2" />
+                {user ? "Notary Portal" : "Notary Login"}
+              </Link>
+            </Button>
             <Button asChild variant="gold" size="lg">
               <Link to="/book">Book Appointment</Link>
             </Button>
@@ -97,7 +105,13 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="mt-4 px-4">
+              <div className="mt-4 px-4 space-y-2">
+                <Button asChild variant="outline" className="w-full" size="lg">
+                  <Link to={user ? "/notary/jobs" : "/auth"} onClick={() => setIsOpen(false)}>
+                    <User className="w-4 h-4 mr-2" />
+                    {user ? "Notary Portal" : "Notary Login"}
+                  </Link>
+                </Button>
                 <Button asChild variant="gold" className="w-full" size="lg">
                   <Link to="/book" onClick={() => setIsOpen(false)}>
                     Book Appointment
