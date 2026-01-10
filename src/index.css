@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 33% 98%;
+    --foreground: 220 40% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 13%;
+
+    --primary: 220 60% 25%;
+    --primary-foreground: 45 100% 96%;
+
+    --secondary: 45 80% 50%;
+    --secondary-foreground: 220 60% 15%;
+
+    --muted: 210 20% 92%;
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 45 75% 55%;
+    --accent-foreground: 220 60% 15%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 85%;
+    --input: 220 20% 85%;
+    --ring: 220 60% 25%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 60% 20%;
+    --sidebar-foreground: 45 100% 96%;
+    --sidebar-primary: 45 80% 50%;
+    --sidebar-primary-foreground: 220 60% 15%;
+    --sidebar-accent: 220 50% 30%;
+    --sidebar-accent-foreground: 45 100% 96%;
+    --sidebar-border: 220 50% 30%;
+    --sidebar-ring: 45 80% 50%;
+
+    --chart-1: 220 60% 25%;
+    --chart-2: 45 80% 50%;
+    --chart-3: 220 40% 40%;
+    --chart-4: 45 60% 60%;
+    --chart-5: 220 30% 55%;
+
+    --navy: 220 60% 25%;
+    --navy-light: 220 50% 35%;
+    --navy-dark: 220 70% 15%;
+    --gold: 45 80% 50%;
+    --gold-light: 45 70% 65%;
+    --gold-dark: 45 90% 40%;
+
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+    --shadow-sm: 0 1px 2px 0 hsl(220 60% 25% / 0.05);
+    --shadow: 0 1px 3px 0 hsl(220 60% 25% / 0.1), 0 1px 2px -1px hsl(220 60% 25% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(220 60% 25% / 0.1), 0 2px 4px -2px hsl(220 60% 25% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 60% 25% / 0.1), 0 4px 6px -4px hsl(220 60% 25% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(220 60% 25% / 0.1), 0 8px 10px -6px hsl(220 60% 25% / 0.1);
+
+    --spacing: 0.25rem;
+  }
+
+  .dark {
+    --background: 220 60% 10%;
+    --foreground: 210 33% 98%;
+
+    --card: 220 55% 15%;
+    --card-foreground: 210 33% 98%;
+
+    --popover: 220 55% 15%;
+    --popover-foreground: 210 33% 98%;
+
+    --primary: 45 80% 50%;
+    --primary-foreground: 220 60% 15%;
+
+    --secondary: 220 50% 30%;
+    --secondary-foreground: 210 33% 98%;
+
+    --muted: 220 40% 20%;
+    --muted-foreground: 210 20% 70%;
+
+    --accent: 45 75% 55%;
+    --accent-foreground: 220 60% 15%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 40% 25%;
+    --input: 220 40% 25%;
+    --ring: 45 80% 50%;
+
+    --sidebar-background: 220 60% 12%;
+    --sidebar-foreground: 210 33% 98%;
+    --sidebar-primary: 45 80% 50%;
+    --sidebar-primary-foreground: 220 60% 15%;
+    --sidebar-accent: 220 50% 20%;
+    --sidebar-accent-foreground: 210 33% 98%;
+    --sidebar-border: 220 40% 25%;
+    --sidebar-ring: 45 80% 50%;
+
+    --chart-1: 45 80% 50%;
+    --chart-2: 220 50% 45%;
+    --chart-3: 45 60% 60%;
+    --chart-4: 220 40% 55%;
+    --chart-5: 45 50% 70%;
+
+    --navy: 220 60% 25%;
+    --navy-light: 220 50% 35%;
+    --navy-dark: 220 70% 15%;
+    --gold: 45 80% 50%;
+    --gold-light: 45 70% 65%;
+    --gold-dark: 45 90% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
