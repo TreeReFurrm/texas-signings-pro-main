@@ -8,6 +8,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import { DocumentAssistant } from "@/components/DocumentAssistant";
 import Index from "./pages/Index";
 import Book from "./pages/Book";
+import Pricing from "./pages/Pricing";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/admin/Dashboard";
 import SessionLogger from "./pages/admin/SessionLogger";
@@ -31,6 +32,7 @@ const App = () => (
             {/* Public Routes */}
             <Route path="/" element={<Index />} />
             <Route path="/book" element={<Book />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/auth" element={<Auth />} />
             
             {/* Notary Routes (Protected) */}

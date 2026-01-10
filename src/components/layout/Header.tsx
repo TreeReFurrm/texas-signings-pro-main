@@ -12,8 +12,8 @@ const Header = () => {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/#services" },
+    { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/#about" },
-    { name: "Book Now", href: "/book" },
   ];
 
   const isActive = (href: string) => {
