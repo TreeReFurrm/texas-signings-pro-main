@@ -4,9 +4,57 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { FileText, Home, Car, Monitor, Download, MapPin, Clock, Building2, AlertCircle } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { FileText, Home, Car, Monitor, Download, MapPin, Clock, Building2, AlertCircle, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const faqItems = [
+  {
+    question: "What is a notary public?",
+    answer: "A notary public is a state-commissioned official who serves as an impartial witness to the signing of important documents. Notaries verify the identity of signers, confirm they understand the documents, and ensure they are signing willingly without coercion."
+  },
+  {
+    question: "What documents do I need to bring?",
+    answer: "You'll need a valid, unexpired government-issued photo ID such as a driver's license, passport, or state ID. The document(s) to be notarized should be unsigned—you must sign in front of the notary. If applicable, bring any supporting documents referenced in your paperwork."
+  },
+  {
+    question: "Do I sign before meeting the notary?",
+    answer: "No! Do not sign your documents before meeting with the notary. A notary must witness you sign the document in person (or via approved video for Remote Online Notarization). Signing beforehand could invalidate the notarization."
+  },
+  {
+    question: "How long does a notarization take?",
+    answer: "Most notarizations take 10-30 minutes depending on the number of documents and signatures. Loan signings typically take 45-90 minutes due to the volume of paperwork involved in real estate transactions."
+  },
+  {
+    question: "Can you notarize documents in languages other than English?",
+    answer: "While I can notarize documents written in any language, I must be able to communicate directly with the signer. If the signer does not speak English, we may need to arrange for an interpreter who is not a party to the transaction."
+  },
+  {
+    question: "What is the difference between an acknowledgment and a jurat?",
+    answer: "An acknowledgment confirms that the signer is who they claim to be and that they signed the document voluntarily. A jurat requires the signer to swear or affirm under oath that the contents of the document are true. The document or its purpose typically determines which type is needed."
+  },
+  {
+    question: "Do you travel to my location?",
+    answer: "Yes! As a mobile notary, I travel to your home, office, hospital, or other convenient location throughout the greater Texas area. Travel fees apply based on distance and time of day—see our travel fees above for details."
+  },
+  {
+    question: "Can I get same-day service?",
+    answer: "Yes, same-day appointments are often available depending on my schedule and your location. Contact me as early as possible to check availability for urgent notarization needs."
+  },
+  {
+    question: "What is Remote Online Notarization (RON)?",
+    answer: "Remote Online Notarization allows documents to be notarized via secure video conference. Both parties connect through an approved platform where identity is verified digitally and the signing is recorded. RON is legal in Texas and convenient for signers who cannot meet in person. This service is coming soon!"
+  },
+  {
+    question: "Do you handle real estate closings?",
+    answer: "Yes! As a certified signing agent, I specialize in real estate closings including purchases, refinances, HELOCs, and reverse mortgages. I work with title companies and lenders to ensure accurate, timely execution of your closing documents."
+  },
+];
 const standardFees = [
   { service: "First signature (acknowledgment or jurat)", price: "$10" },
   { service: "Each additional signature (same document)", price: "$1" },
@@ -237,6 +285,36 @@ const Pricing = () => {
                   </Card>
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="max-w-3xl mx-auto">
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <HelpCircle className="w-8 h-8 text-primary" />
+                <h2 className="font-serif text-3xl font-bold text-foreground">
+                  Frequently Asked Questions
+                </h2>
+              </div>
+              <p className="text-muted-foreground text-center mb-8">
+                Common questions about notary services in Texas
+              </p>
+
+              <Accordion type="single" collapsible className="w-full">
+                {faqItems.map((item, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left text-foreground hover:text-primary">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </section>
