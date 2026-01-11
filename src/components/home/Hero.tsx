@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30 mb-6">
             <Shield className="w-4 h-4 text-secondary" />
-            <span className="text-sm font-medium text-secondary">
+            <span className="text-sm font-medium text-white">
               Licensed & Bonded in Texas
             </span>
           </div>
