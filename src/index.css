@@ -11,121 +11,121 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 210 33% 98%;
-    --foreground: 220 40% 13%;
+    --background: 36 33% 96%;
+    --foreground: 220 18% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 40% 13%;
+    --card: 36 45% 98%;
+    --card-foreground: 220 18% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 13%;
+    --popover: 36 45% 98%;
+    --popover-foreground: 220 18% 15%;
 
-    --primary: 220 60% 25%;
-    --primary-foreground: 45 100% 96%;
+    --primary: 210 20% 28%;
+    --primary-foreground: 36 45% 96%;
 
-    --secondary: 45 80% 50%;
-    --secondary-foreground: 220 60% 15%;
+    --secondary: 24 45% 74%;
+    --secondary-foreground: 220 18% 18%;
 
-    --muted: 210 20% 92%;
-    --muted-foreground: 220 15% 40%;
+    --muted: 35 20% 90%;
+    --muted-foreground: 220 10% 40%;
 
-    --accent: 45 75% 55%;
-    --accent-foreground: 220 60% 15%;
+    --accent: 160 22% 76%;
+    --accent-foreground: 220 18% 18%;
 
-    --destructive: 0 72% 50%;
+    --destructive: 0 60% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 85%;
-    --input: 220 20% 85%;
-    --ring: 220 60% 25%;
+    --border: 35 12% 82%;
+    --input: 35 12% 82%;
+    --ring: 210 20% 28%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 220 60% 20%;
-    --sidebar-foreground: 45 100% 96%;
-    --sidebar-primary: 45 80% 50%;
-    --sidebar-primary-foreground: 220 60% 15%;
-    --sidebar-accent: 220 50% 30%;
-    --sidebar-accent-foreground: 45 100% 96%;
-    --sidebar-border: 220 50% 30%;
-    --sidebar-ring: 45 80% 50%;
+    --sidebar-background: 215 16% 22%;
+    --sidebar-foreground: 36 35% 96%;
+    --sidebar-primary: 24 45% 74%;
+    --sidebar-primary-foreground: 220 18% 18%;
+    --sidebar-accent: 210 16% 30%;
+    --sidebar-accent-foreground: 36 35% 96%;
+    --sidebar-border: 210 12% 28%;
+    --sidebar-ring: 24 45% 74%;
 
-    --chart-1: 220 60% 25%;
-    --chart-2: 45 80% 50%;
-    --chart-3: 220 40% 40%;
-    --chart-4: 45 60% 60%;
-    --chart-5: 220 30% 55%;
+    --chart-1: 210 20% 30%;
+    --chart-2: 24 50% 70%;
+    --chart-3: 160 25% 70%;
+    --chart-4: 48 60% 72%;
+    --chart-5: 200 25% 70%;
 
-    --navy: 220 60% 25%;
-    --navy-light: 220 50% 35%;
-    --navy-dark: 220 70% 15%;
-    --gold: 45 80% 50%;
-    --gold-light: 45 70% 65%;
-    --gold-dark: 45 90% 40%;
+    --navy: 210 20% 28%;
+    --navy-light: 210 18% 36%;
+    --navy-dark: 210 24% 20%;
+    --gold: 24 45% 74%;
+    --gold-light: 26 50% 82%;
+    --gold-dark: 22 40% 60%;
 
     --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
     --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-    --shadow-sm: 0 1px 2px 0 hsl(220 60% 25% / 0.05);
-    --shadow: 0 1px 3px 0 hsl(220 60% 25% / 0.1), 0 1px 2px -1px hsl(220 60% 25% / 0.1);
-    --shadow-md: 0 4px 6px -1px hsl(220 60% 25% / 0.1), 0 2px 4px -2px hsl(220 60% 25% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(220 60% 25% / 0.1), 0 4px 6px -4px hsl(220 60% 25% / 0.1);
-    --shadow-xl: 0 20px 25px -5px hsl(220 60% 25% / 0.1), 0 8px 10px -6px hsl(220 60% 25% / 0.1);
+    --shadow-sm: 0 1px 2px 0 hsl(210 20% 28% / 0.06);
+    --shadow: 0 1px 3px 0 hsl(210 20% 28% / 0.12), 0 1px 2px -1px hsl(210 20% 28% / 0.12);
+    --shadow-md: 0 4px 6px -1px hsl(210 20% 28% / 0.14), 0 2px 4px -2px hsl(210 20% 28% / 0.12);
+    --shadow-lg: 0 10px 15px -3px hsl(210 20% 28% / 0.16), 0 4px 6px -4px hsl(210 20% 28% / 0.14);
+    --shadow-xl: 0 20px 25px -5px hsl(210 20% 28% / 0.18), 0 8px 10px -6px hsl(210 20% 28% / 0.16);
 
     --spacing: 0.25rem;
   }
 
   .dark {
-    --background: 220 60% 10%;
-    --foreground: 210 33% 98%;
+    --background: 210 15% 10%;
+    --foreground: 36 35% 96%;
 
-    --card: 220 55% 15%;
-    --card-foreground: 210 33% 98%;
+    --card: 210 14% 14%;
+    --card-foreground: 36 35% 96%;
 
-    --popover: 220 55% 15%;
-    --popover-foreground: 210 33% 98%;
+    --popover: 210 14% 14%;
+    --popover-foreground: 36 35% 96%;
 
-    --primary: 45 80% 50%;
-    --primary-foreground: 220 60% 15%;
+    --primary: 24 45% 74%;
+    --primary-foreground: 220 18% 15%;
 
-    --secondary: 220 50% 30%;
-    --secondary-foreground: 210 33% 98%;
+    --secondary: 200 22% 55%;
+    --secondary-foreground: 220 18% 15%;
 
-    --muted: 220 40% 20%;
-    --muted-foreground: 210 20% 70%;
+    --muted: 210 10% 22%;
+    --muted-foreground: 36 20% 75%;
 
-    --accent: 45 75% 55%;
-    --accent-foreground: 220 60% 15%;
+    --accent: 160 22% 70%;
+    --accent-foreground: 220 18% 15%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 40% 25%;
-    --input: 220 40% 25%;
-    --ring: 45 80% 50%;
+    --border: 210 10% 25%;
+    --input: 210 10% 25%;
+    --ring: 24 45% 74%;
 
-    --sidebar-background: 220 60% 12%;
-    --sidebar-foreground: 210 33% 98%;
-    --sidebar-primary: 45 80% 50%;
-    --sidebar-primary-foreground: 220 60% 15%;
-    --sidebar-accent: 220 50% 20%;
-    --sidebar-accent-foreground: 210 33% 98%;
-    --sidebar-border: 220 40% 25%;
-    --sidebar-ring: 45 80% 50%;
+    --sidebar-background: 210 14% 12%;
+    --sidebar-foreground: 36 35% 96%;
+    --sidebar-primary: 24 45% 74%;
+    --sidebar-primary-foreground: 220 18% 15%;
+    --sidebar-accent: 210 12% 22%;
+    --sidebar-accent-foreground: 36 35% 96%;
+    --sidebar-border: 210 10% 25%;
+    --sidebar-ring: 24 45% 74%;
 
-    --chart-1: 45 80% 50%;
-    --chart-2: 220 50% 45%;
-    --chart-3: 45 60% 60%;
-    --chart-4: 220 40% 55%;
-    --chart-5: 45 50% 70%;
+    --chart-1: 24 50% 70%;
+    --chart-2: 200 25% 60%;
+    --chart-3: 160 25% 68%;
+    --chart-4: 48 60% 70%;
+    --chart-5: 210 18% 55%;
 
-    --navy: 220 60% 25%;
-    --navy-light: 220 50% 35%;
-    --navy-dark: 220 70% 15%;
-    --gold: 45 80% 50%;
-    --gold-light: 45 70% 65%;
-    --gold-dark: 45 90% 40%;
+    --navy: 200 22% 55%;
+    --navy-light: 200 20% 62%;
+    --navy-dark: 200 24% 45%;
+    --gold: 24 45% 74%;
+    --gold-light: 26 50% 82%;
+    --gold-dark: 22 40% 60%;
   }
 }
 
