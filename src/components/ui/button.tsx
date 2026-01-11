@@ -5,9 +5,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const accentButton =
-  "bg-secondary text-secondary-foreground border border-primary/50 ring-1 ring-primary/20 shadow-md hover:shadow-lg hover:bg-gold-dark";
+  "bg-accent text-accent-foreground shadow-md hover:shadow-lg hover:bg-gold-dark";
 const accentButtonHero =
-  "bg-secondary text-secondary-foreground border border-primary/50 ring-1 ring-primary/20 shadow-lg hover:shadow-xl hover:bg-gold-dark font-semibold";
+  "bg-accent text-accent-foreground shadow-lg hover:shadow-xl hover:bg-gold-dark font-semibold";
+const accentButtonOutline =
+  "border-2 border-accent text-accent bg-transparent hover:bg-accent hover:text-accent-foreground font-semibold";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
@@ -21,8 +23,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         hero: accentButtonHero,
-        heroOutline:
-          "border-2 border-secondary text-secondary bg-secondary/10 hover:bg-secondary hover:text-secondary-foreground font-semibold",
+        heroOutline: accentButtonOutline,
         navy: "bg-primary text-primary-foreground hover:bg-navy-light shadow-md hover:shadow-lg",
         gold: accentButton,
       },
