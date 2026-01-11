@@ -12,13 +12,16 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground hover:bg-navy-light shadow-md hover:shadow-lg",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-gold-dark shadow-md hover:shadow-lg",
+        secondary:
+          "bg-gradient-to-r from-secondary via-secondary to-primary text-secondary-foreground shadow-md hover:shadow-lg hover:from-secondary/90 hover:via-secondary/90 hover:to-primary/90",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-secondary text-secondary-foreground hover:bg-gold-dark shadow-lg hover:shadow-xl font-semibold",
+        hero:
+          "bg-gradient-to-r from-secondary via-secondary to-primary text-secondary-foreground shadow-lg hover:shadow-xl font-semibold hover:from-secondary/90 hover:via-secondary/90 hover:to-primary/90",
         heroOutline: "border-2 border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-secondary-foreground font-semibold",
         navy: "bg-primary text-primary-foreground hover:bg-navy-light shadow-md hover:shadow-lg",
-        gold: "bg-secondary text-secondary-foreground hover:bg-gold-dark shadow-md hover:shadow-lg",
+        gold:
+          "bg-gradient-to-r from-secondary via-secondary to-primary text-secondary-foreground shadow-md hover:shadow-lg hover:from-secondary/90 hover:via-secondary/90 hover:to-primary/90",
       },
       size: {
         default: "h-10 px-4 py-2",
