@@ -76,11 +76,11 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:info@texasmobilenotary.com"
+                  href="mailto:info@refurrm.com"
                   className="flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-secondary transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  info@texasmobilenotary.com
+                  info@refurrm.com
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-primary-foreground/80">
@@ -97,7 +97,7 @@ const Footer = () => {
               © {new Date().getFullYear()} ReFurrm Mobile Notary. All rights reserved.
             </p>
             <p className="text-sm text-primary-foreground/60">
-              Texas Notary Commission #12345678
+              Texas Notary Commission #135540519
             </p>
           </div>
         </div>
