@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
@@ -40,6 +40,8 @@ interface Job {
   notes: string | null;
 }
 
+type JobStatus = 'claimed' | 'completed' | 'cancelled';
+
 const serviceTypeLabels: Record<string, string> = {
   acknowledgment: 'Acknowledgment',
   jurat: 'Jurat',
@@ -67,22 +69,16 @@ const MyJobs = () => {
   const [loading, setLoading] = useState(true);
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('claimed');
+  const [activeTab, setActiveTab] = useState<JobStatus>('claimed');
   
   const { user, signOut, isAdmin } = useAuth();
   const { toast } = useToast();
 
-  useEffect(() => {
-    if (user) {
-      fetchMyJobs();
-    }
-  }, [user, activeTab]);
-
-  const fetchMyJobs = async () => {
+  const fetchMyJobs = useCallback(async () => {
     if (!user) return;
     
     setLoading(true);
-    const statusFilter = activeTab as 'claimed' | 'completed' | 'cancelled';
+    const statusFilter = activeTab;
     const { data, error } = await supabase
       .from('jobs')
       .select('*')
@@ -96,12 +92,16 @@ const MyJobs = () => {
       setJobs(data || []);
     }
     setLoading(false);
-  };
+  }, [activeTab, user]);
+
+  useEffect(() => {
+    fetchMyJobs();
+  }, [fetchMyJobs]);
 
   const updateJobStatus = async (jobId: string, newStatus: 'completed' | 'cancelled') => {
     setUpdatingId(jobId);
     
-    const updateData: Record<string, any> = { status: newStatus };
+    const updateData: { status: 'completed' | 'cancelled'; completed_at?: string } = { status: newStatus };
     if (newStatus === 'completed') {
       updateData.completed_at = new Date().toISOString();
     }

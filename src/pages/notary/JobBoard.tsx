@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
@@ -67,11 +67,7 @@ const JobBoard = () => {
   const { user, signOut, isAdmin } = useAuth();
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchJobs();
-  }, []);
-
-  const fetchJobs = async () => {
+  const fetchJobs = useCallback(async () => {
     setLoading(true);
     const { data, error } = await supabase
       .from('jobs')
@@ -90,7 +86,11 @@ const JobBoard = () => {
       setJobs(data || []);
     }
     setLoading(false);
-  };
+  }, [toast]);
+
+  useEffect(() => {
+    fetchJobs();
+  }, [fetchJobs]);
 
   const claimJob = async (jobId: string) => {
     if (!user) return;
