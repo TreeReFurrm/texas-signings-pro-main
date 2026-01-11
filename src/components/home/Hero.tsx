@@ -42,7 +42,7 @@ const Hero = () => {
               <Link to="/book">Book Appointment</Link>
             </Button>
             <Button asChild variant="heroOutline" size="xl">
-              <a href="tel:+1234567890">Call Now</a>
+              <a href="tel:+4792143959">Call Now</a>
             </Button>
           </div>
 

@@ -234,7 +234,7 @@ const Book = () => {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => handleInputChange("phone", e.target.value)}
-                        placeholder="(123) 456-7890"
+                        placeholder="479.214.3959"
                       />
                     </div>
                     <div className="space-y-2">

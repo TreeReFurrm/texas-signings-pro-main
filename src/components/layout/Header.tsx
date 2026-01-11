@@ -60,11 +60,11 @@ const Header = () => {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:+1234567890"
+              href="tel:+4792143959"
               className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
-              (123) 456-7890
+              479.214.3959
             </a>
             <Button asChild variant="outline" size="sm">
               <Link to={user ? "/notary/jobs" : "/auth"}>

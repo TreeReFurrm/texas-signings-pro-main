@@ -67,20 +67,20 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+4792143959"
                   className="flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-secondary transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  (123) 456-7890
+                  479.214.3959
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@texasmobilenotary.com"
+                  href="mailto:info@refurrm.app"
                   className="flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-secondary transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  info@texasmobilenotary.com
+                  info@refurrm.app
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-primary-foreground/80">
@@ -97,7 +97,7 @@ const Footer = () => {
               © {new Date().getFullYear()} ReFurrm Mobile Notary. All rights reserved.
             </p>
             <p className="text-sm text-primary-foreground/60">
-              Texas Notary Commission #12345678
+              Notary ID# 135540519
             </p>
           </div>
         </div>
